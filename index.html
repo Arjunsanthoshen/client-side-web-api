@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Assistant Dashboard</h1>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </header>
+        
+        <div class="model-selection">
+            <label for="model-select">Select AI Model:</label>
+            <select id="model-select">
+                <option value="llama3-8b-8192">LLaMA3 8B</option>
+                <option value="llama3-70b-8192">LLaMA3 70B</option>
+                <option value="mixtral-8x7b-32768">Mixtral 8x7B</option>
+                <option value="gemma-7b-it">Gemma 7B</option>
+            </select>
+        </div>
+        
+        <div class="prompt-container">
+            <textarea id="prompt-input" placeholder="Enter your prompt here..."></textarea>
+            <div class="button-container">
+                <button id="submit-btn">Generate</button>
+                <button id="clear-btn">Clear</button>
+            </div>
+        </div>
+        
+        <div class="response-container">
+            <div id="response-area" class="response-card">
+                <p class="placeholder-text">Your AI-generated response will appear here...</p>
+            </div>
+        </div>
+        
+        <div class="favorites-container">
+            <h2>Saved Prompts</h2>
+            <div id="favorites-list">
+                <!-- Saved prompts will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add a more reliable way to manage API key -->
+    <script>
+        // Since loading .env files directly in browsers has security and reliability issues,
+        // let's create a more practical approach for development purposes
+        window.process = { 
+            env: { 
+                // Fallback API key directly in the code (only for development)
+                GROQ_API_KEY: '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'
+            } 
+        };
+
+        // Load main script
+        const script = document.createElement('script');
+        script.src = 'app.js';
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>
